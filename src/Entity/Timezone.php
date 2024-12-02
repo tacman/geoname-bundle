@@ -7,55 +7,48 @@ use Stringable;
 
 /**
  * Timezone
- *
- * @ORM\Table(name="geo__timezone")
- * @ORM\Entity()
  */
+#[ORM\Table(name: 'geo__timezone')]
+#[ORM\Entity]
 class Timezone implements Stringable
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
+    #[ORM\Column(name: 'id', type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
     protected ?int $id = null;
 
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="timezone", type="string", length=50, unique=true)
      */
+    #[ORM\Column(name: 'timezone', type: 'string', length: 50, unique: true)]
     protected string $timezone;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="country_code", type="string", length=2)
      */
+    #[ORM\Column(name: 'country_code', type: 'string', length: 2)]
     protected string $countryCode;
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="gmt_offset", type="float", scale=1)
      */
+    #[ORM\Column(name: 'gmt_offset', type: 'float', scale: 1)]
     protected float $gmtOffset;
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="dst_offset", type="float", scale=1)
      */
+    #[ORM\Column(name: 'dst_offset', type: 'float', scale: 1)]
     protected float $dstOffset;
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="raw_offset", type="float", scale=1)
      */
+    #[ORM\Column(name: 'raw_offset', type: 'float', scale: 1)]
     protected float $rawOffset;
 
     /**

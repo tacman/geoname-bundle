@@ -82,7 +82,7 @@ class ImportCommand extends Command
      * @param OutputInterface $output
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $downloadDir = $input->getOption('download-dir');
 

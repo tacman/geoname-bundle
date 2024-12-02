@@ -25,7 +25,7 @@ class TestKernel extends Kernel
         yield new \Bordeux\Bundle\GeoNameBundle\BordeuxGeoNameBundle();
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->getProjectDir() . '/config.yaml');
     }

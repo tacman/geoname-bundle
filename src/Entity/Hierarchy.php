@@ -8,45 +8,39 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Hierarchy
  * @author Chris Bednarczyk <chris@tourradar.com>
  * @package Bordeux\Bundle\GeoNameBundle\Entity
- *
- * @ORM\Table(name="geo__name_hierarchy", indexes={
- *     @ORM\Index(name="geoname_hierarchy_unique_idx", columns={"parent_id", "child_id", "type"})
- * })
- * @ORM\Entity()
  */
+#[ORM\Table(name: 'geo__name_hierarchy')]
+#[ORM\Index(name: 'geoname_hierarchy_unique_idx', columns: ['parent_id', 'child_id', 'type'])]
+#[ORM\Entity]
 class Hierarchy
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
+    #[ORM\Column(name: 'id', type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
     protected int $id;
 
     /**
      * @var GeoName|null
-     *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
+    #[ORM\JoinColumn(name: 'parent_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
+    #[ORM\ManyToOne(targetEntity: \Bordeux\Bundle\GeoNameBundle\Entity\GeoName::class)]
     protected GeoName $parent;
 
     /**
      * @var GeoName
-     *
-     * @ORM\ManyToOne(targetEntity="Bordeux\Bundle\GeoNameBundle\Entity\GeoName", inversedBy="parents")
-     * @ORM\JoinColumn(name="child_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
+    #[ORM\JoinColumn(name: 'child_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
+    #[ORM\ManyToOne(targetEntity: \Bordeux\Bundle\GeoNameBundle\Entity\GeoName::class, inversedBy: 'parents')]
     protected GeoName $child;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="type", type="string", length=10, nullable=true)
      */
-    protected ?string $type;
+    #[ORM\Column(name: 'type', type: 'string', length: 10, nullable: true)]
+    protected ?string $type = null;
 
     /**
      * @return int

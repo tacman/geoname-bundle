@@ -1,3 +1,15 @@
+Note to Tac: 
+
+Use location-bundle instead.
+
+
+
+
+
+
+
+
+
 Geonames Bundle
 ===============
 ![Build Status](https://github.com/bordeux/geoname-bundle/actions/workflows/ci.yml/badge.svg)
